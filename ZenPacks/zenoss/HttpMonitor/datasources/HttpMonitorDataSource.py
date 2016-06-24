@@ -35,6 +35,7 @@ class HttpMonitorDataSource(ZenPackPersistence, RRDDataSource.RRDDataSource):
     ipAddress = '${dev/manageIp}'
     port = 80
     useSsl= False
+	useSni= False
     url = '/'
     regex = ''
     caseSensitive = False
@@ -53,6 +54,7 @@ class HttpMonitorDataSource(ZenPackPersistence, RRDDataSource.RRDDataSource):
         {'id':'ipAddress', 'type':'string', 'mode':'w'},
         {'id':'port', 'type':'int', 'mode':'w'},
         {'id':'useSsl', 'type':'boolean', 'mode':'w'},
+		{'id':'useSni', 'type':'boolean', 'mode':'w'},
         {'id':'url', 'type':'string', 'mode':'w'},
         {'id':'regex', 'type':'string', 'mode':'w'},
         {'id':'caseSensitive', 'type':'boolean', 'mode':'w'},
@@ -113,6 +115,8 @@ class HttpMonitorDataSource(ZenPackPersistence, RRDDataSource.RRDDataSource):
             parts.append('-t %s' % self.timeout)
         if self.useSsl:
             parts.append('-S')
+		if self.useSni:
+            parts.append('--sni')	
         if self.url:
             parts.append('-u %s' % self.url)
         if self.regex:
@@ -155,3 +159,4 @@ class HttpMonitorDataSource(ZenPackPersistence, RRDDataSource.RRDDataSource):
             if not REQUEST.form.get('eventClass', None):
                 REQUEST.form['eventClass'] = self.__class__.eventClass
         return RRDDataSource.RRDDataSource.zmanage_editProperties(self, REQUEST)
+
