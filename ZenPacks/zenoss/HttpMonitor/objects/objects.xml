@@ -46,9 +46,6 @@ ${dev/manageIp}
 <property type="boolean" id="useSsl" mode="w" >
 False
 </property>
-<property type="boolean" id="useSni" mode="w" >
-False
-</property>
 <property type="string" id="url" mode="w" >
 /
 </property>
@@ -56,6 +53,9 @@ False
 False
 </property>
 <property type="boolean" id="invert" mode="w" >
+False
+</property>
+<property type="boolean" id="useSni" mode="w" >
 False
 </property>
 <property type="string" id="onRedirect" mode="w" >
