@@ -46,6 +46,9 @@ ${dev/manageIp}
 <property type="boolean" id="useSsl" mode="w" >
 False
 </property>
+<property type="boolean" id="useSni" mode="w" >
+False
+</property>
 <property type="string" id="url" mode="w" >
 /
 </property>
