@@ -141,6 +141,15 @@
                 tal:content="here/useSsl"/>
         </tr>
         <tr>
+            <td class="tableheader">Url</td>
+            <td class="tablevalues" tal:condition="editable">
+            <input class="tablevalues" type="text" name="url:string" size="40"
+                tal:attributes="value here/url" />
+            </td>
+          <td class="tablevalues" tal:condition="not:editable" 
+                tal:content="here/url"/>
+        </tr>
+        <tr>
             <td class="tableheader">Use SNI</td>
             <td class="tablevalues" tal:condition="editable">
             <select class="tablevalues" name="useSni:boolean">
@@ -150,15 +159,6 @@
 	    </td>
             <td class="tablevalues" tal:condition="not:editable" 
                 tal:content="here/useSni"/>
-        </tr>
-        <tr>
-            <td class="tableheader">Url</td>
-            <td class="tablevalues" tal:condition="editable">
-            <input class="tablevalues" type="text" name="url:string" size="40"
-                tal:attributes="value here/url" />
-            </td>
-          <td class="tablevalues" tal:condition="not:editable" 
-                tal:content="here/url"/>
         </tr>
         <tr>
             <td class="tableheader">Regular Expression</td>
