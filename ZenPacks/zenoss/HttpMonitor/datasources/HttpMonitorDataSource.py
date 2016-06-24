@@ -35,11 +35,11 @@ class HttpMonitorDataSource(ZenPackPersistence, RRDDataSource.RRDDataSource):
     ipAddress = '${dev/manageIp}'
     port = 80
     useSsl= False
-    useSni= False
     url = '/'
     regex = ''
     caseSensitive = False
     invert = False
+    useSni= False
     basicAuthUser = ''
     basicAuthPass = ''
     onRedirect = 'follow'
@@ -54,11 +54,11 @@ class HttpMonitorDataSource(ZenPackPersistence, RRDDataSource.RRDDataSource):
         {'id':'ipAddress', 'type':'string', 'mode':'w'},
         {'id':'port', 'type':'int', 'mode':'w'},
         {'id':'useSsl', 'type':'boolean', 'mode':'w'},
-	{'id':'useSni', 'type':'boolean', 'mode':'w'},
         {'id':'url', 'type':'string', 'mode':'w'},
         {'id':'regex', 'type':'string', 'mode':'w'},
         {'id':'caseSensitive', 'type':'boolean', 'mode':'w'},
         {'id':'invert', 'type':'boolean', 'mode':'w'},
+        {'id':'useSni', 'type':'boolean', 'mode':'w'},
         {'id':'basicAuthUser', 'type':'string', 'mode':'w'},
         {'id':'basicAuthPass', 'type':'string', 'mode':'w'},
         {'id':'onRedirect', 'type':'string', 'mode':'w'},
@@ -115,8 +115,6 @@ class HttpMonitorDataSource(ZenPackPersistence, RRDDataSource.RRDDataSource):
             parts.append('-t %s' % self.timeout)
         if self.useSsl:
             parts.append('-S')
-	if self.useSni:
-            parts.append('--sni')	
         if self.url:
             parts.append('-u %s' % self.url)
         if self.regex:
@@ -126,6 +124,8 @@ class HttpMonitorDataSource(ZenPackPersistence, RRDDataSource.RRDDataSource):
                 parts.append("-R '%s'" % self.regex)
             if self.invert:
                 parts.append('--invert-regex')
+        if self.useSni:
+            parts.append('--sni')
         if self.basicAuthUser or self.basicAuthPass:
             parts.append('-a %s:%s' % (self.basicAuthUser, self.basicAuthPass))
         if self.onRedirect:
