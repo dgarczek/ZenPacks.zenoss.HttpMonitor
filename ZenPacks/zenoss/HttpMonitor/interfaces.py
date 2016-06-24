@@ -21,6 +21,7 @@ class IHttpMonitorDataSourceInfo(IRRDDataSourceInfo):
     ipAddress = schema.TextLine(title=_t(u'IP Address or Proxy Address'), group=_t('HTTP Monitor'))
     url = schema.TextLine(title=_t(u'URL'), group=_t('HTTP Monitor'))
     useSsl = schema.Bool(title=_t(u'Use SSL?'), group=_t('HTTP Monitor'))
+    useSni = schema.Bool(title=_t(u'Use SNI?'), group=_t('HTTP Monitor'))
     regex = schema.TextLine(title=_t(u'Regular Expression'), group=_t('HTTP Monitor'))
     caseSensitive = schema.Bool(title=_t(u'Case Sensitive'), group=_t('HTTP Monitor'))
     basicAuthUser = schema.TextLine(title=_t(u'Basic Auth User'), group=_t('HTTP Monitor'))
