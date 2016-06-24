@@ -27,6 +27,7 @@ class HttpMonitorDataSourceInfo(RRDDataSourceInfo):
     ipAddress = ProxyProperty('ipAddress')
     port = ProxyProperty('port')
     useSsl = ProxyProperty('useSsl')
+    useSni = ProxyProperty('useSni')
     url = ProxyProperty('url')
     regex = ProxyProperty('regex')
     caseSensitive = ProxyProperty('caseSensitive')
