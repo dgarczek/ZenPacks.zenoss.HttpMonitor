@@ -34,15 +34,15 @@ class HttpMonitorDataSource(ZenPackPersistence, RRDDataSource.RRDDataSource):
     hostname = '${dev/id}'
     ipAddress = '${dev/manageIp}'
     port = 80
-    useSsl= False
     url = '/'
     regex = ''
-    caseSensitive = False
-    invert = False
-    useSni= False
     basicAuthUser = ''
     basicAuthPass = ''
     onRedirect = 'follow'
+    useSsl= False
+    useSni= False
+    caseSensitive = False
+    invert = False
 
     onRedirectOptions = ('ok', 'warning', 'critical', 'follow', 'sticky', 'stickyport')
 
@@ -53,18 +53,18 @@ class HttpMonitorDataSource(ZenPackPersistence, RRDDataSource.RRDDataSource):
         {'id':'hostname', 'type':'string', 'mode':'w'},
         {'id':'ipAddress', 'type':'string', 'mode':'w'},
         {'id':'port', 'type':'int', 'mode':'w'},
-        {'id':'useSsl', 'type':'boolean', 'mode':'w'},
         {'id':'url', 'type':'string', 'mode':'w'},
         {'id':'regex', 'type':'string', 'mode':'w'},
-        {'id':'caseSensitive', 'type':'boolean', 'mode':'w'},
-        {'id':'invert', 'type':'boolean', 'mode':'w'},
-        {'id':'useSni', 'type':'boolean', 'mode':'w'},
         {'id':'basicAuthUser', 'type':'string', 'mode':'w'},
         {'id':'basicAuthPass', 'type':'string', 'mode':'w'},
         {'id':'onRedirect', 'type':'string', 'mode':'w'},
         {'id':'timeout', 'type':'int', 'mode':'w'},
         {'id':'proxyAuthUser', 'type':'string', 'mode':'w'},
         {'id':'proxyAuthPassword', 'type':'string', 'mode':'w'},
+        {'id':'useSsl', 'type':'boolean', 'mode':'w'},
+        {'id':'useSni', 'type':'boolean', 'mode':'w'},
+        {'id':'caseSensitive', 'type':'boolean', 'mode':'w'},
+        {'id':'invert', 'type':'boolean', 'mode':'w'},
         )
         
     _relations = RRDDataSource.RRDDataSource._relations + (
